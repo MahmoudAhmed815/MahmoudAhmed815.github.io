@@ -1,0 +1,639 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mahmoud Ahmed | Data Analyst</title>
+
+    <style>
+        /* 1. GLOBAL STYLES */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #0b1020;
+            color: #f4f7fb;
+            line-height: 1.6;
+        }
+
+        a {
+            color: #79e0c3;
+            text-decoration: none;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1080px;
+            margin: auto;
+        }
+
+        /* 2. NAVIGATION BAR */
+        header {
+            background: #0b1020;
+            border-bottom: 1px solid #2a3650;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            min-height: 70px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .logo span {
+            color: #79e0c3;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 22px;
+        }
+
+        nav ul a {
+            color: #aab6cb;
+        }
+
+        nav ul a:hover {
+            color: #79e0c3;
+        }
+
+        /* 3. HERO SECTION */
+        .hero {
+            min-height: 520px;
+            padding: 80px 0;
+            display: grid;
+            grid-template-columns: 1.5fr 0.8fr;
+            gap: 45px;
+            align-items: center;
+        }
+
+        .eyebrow {
+            color: #79e0c3;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        h1 {
+            font-size: clamp(42px, 6vw, 70px);
+            line-height: 1.1;
+            margin: 18px 0;
+            letter-spacing: -2px;
+        }
+
+        h1 span {
+            color: #79e0c3;
+        }
+
+        .hero p {
+            color: #aab6cb;
+            font-size: 17px;
+            max-width: 600px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 28px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 18px;
+            border: 1px solid #2a3650;
+            border-radius: 9px;
+            font-weight: bold;
+        }
+
+        .btn-primary {
+            background: #79e0c3;
+            color: #0b1020;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        /* 4. HERO INFORMATION CARD */
+        .profile-card {
+            background: #121a2d;
+            border: 1px solid #2a3650;
+            border-radius: 18px;
+            padding: 25px;
+        }
+
+        .profile-card h3 {
+            color: #aab6cb;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .metric {
+            padding: 15px 0;
+            border-top: 1px solid #2a3650;
+        }
+
+        .metric h4 {
+            font-size: 23px;
+        }
+
+        .metric p {
+            font-size: 13px;
+        }
+
+        /* 5. GENERAL SECTIONS */
+        section {
+            padding: 65px 0;
+            scroll-margin-top: 75px;
+        }
+
+        .section-title {
+            font-size: 36px;
+            margin-bottom: 25px;
+            letter-spacing: -1px;
+        }
+
+        .muted {
+            color: #aab6cb;
+        }
+
+        .about-text {
+            max-width: 800px;
+            font-size: 17px;
+        }
+
+        /* 6. PROJECT CARDS */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        .project-card {
+            background: #121a2d;
+            border: 1px solid #2a3650;
+            border-radius: 16px;
+            padding: 25px;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            border-color: #79e0c3;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .tag {
+            color: #9cb9ff;
+            background: #1a2944;
+            border: 1px solid #2b4166;
+            border-radius: 20px;
+            padding: 4px 10px;
+            font-size: 12px;
+        }
+
+        .project-card h3 {
+            font-size: 21px;
+            margin-bottom: 10px;
+        }
+
+        .project-card p {
+            color: #aab6cb;
+            margin-bottom: 16px;
+        }
+
+        .project-card ul {
+            color: #aab6cb;
+            padding-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        .project-link {
+            display: inline-block;
+            margin-top: 5px;
+            font-weight: bold;
+        }
+
+        /* 7. SKILLS */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        .skill {
+            background: #121a2d;
+            border: 1px solid #2a3650;
+            border-radius: 12px;
+            padding: 18px;
+        }
+
+        .skill h3 {
+            color: #79e0c3;
+            margin-bottom: 7px;
+            font-size: 17px;
+        }
+
+        .skill p {
+            color: #aab6cb;
+            font-size: 13px;
+        }
+
+        /* 8. WORK PROCESS */
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .process-card {
+            background: #121a2d;
+            border: 1px solid #2a3650;
+            border-radius: 14px;
+            padding: 22px;
+        }
+
+        .number {
+            color: #79e0c3;
+            font-weight: bold;
+            font-size: 13px;
+        }
+
+        .process-card h3 {
+            margin: 10px 0;
+        }
+
+        .process-card p {
+            color: #aab6cb;
+        }
+
+        /* 9. CONTACT */
+        .contact-box {
+            background: #121a2d;
+            border: 1px solid #2a3650;
+            border-radius: 18px;
+            padding: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .contact-box p {
+            color: #aab6cb;
+            margin-top: 8px;
+        }
+
+        footer {
+            border-top: 1px solid #2a3650;
+            padding: 25px 0;
+            color: #aab6cb;
+            font-size: 13px;
+        }
+
+        /* 10. MOBILE RESPONSIVENESS */
+        @media (max-width: 760px) {
+            .hero {
+                grid-template-columns: 1fr;
+                padding: 60px 0;
+            }
+
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .process-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-box {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                padding: 15px 0;
+            }
+
+            nav ul {
+                gap: 12px;
+                flex-wrap: wrap;
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <header>
+        <nav class="container">
+            <a href="#home" class="logo">Mahmoud Ahmed<span>.</span></a>
+
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- HERO -->
+        <div class="container hero" id="home">
+            <div>
+                <div class="eyebrow">Data Analyst · Business Insights</div>
+
+                <h1>Turning data into <span>decisions.</span></h1>
+
+                <p>
+                    I'm Mahmoud Mohamed Ahmed, a data analytics professional
+                    interested in transforming raw data into meaningful
+                    business insights using Power BI, SQL, Excel, Power Query,
+                    and Python.
+                </p>
+
+                <div class="buttons">
+                    <a href="#projects" class="btn btn-primary">
+                        Explore My Projects ↓
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/mahmoudnoby/"
+                       target="_blank" rel="noopener noreferrer"
+                       class="btn">
+                        LinkedIn ↗
+                    </a>
+                </div>
+            </div>
+
+            <div class="profile-card">
+                <h3>PORTFOLIO SNAPSHOT</h3>
+
+                <div class="metric">
+                    <h4>Power BI</h4>
+                    <p>Interactive dashboards and KPIs</p>
+                </div>
+
+                <div class="metric">
+                    <h4>SQL</h4>
+                    <p>Data querying and business analysis</p>
+                </div>
+
+                <div class="metric">
+                    <h4>Data Cleaning</h4>
+                    <p>Reliable datasets using Excel and Power Query</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ABOUT -->
+        <section id="about">
+            <div class="container">
+                <h2 class="section-title">About Me</h2>
+
+                <p class="about-text muted">
+                    I have an academic background in Data Science and an
+                    interest in using data to solve practical business
+                    problems. I enjoy preparing datasets, analyzing trends,
+                    building dashboards, and communicating findings clearly.
+                    My goal is to turn analysis into recommendations that
+                    help businesses make better decisions.
+                </p>
+            </div>
+        </section>
+
+        <!-- PROJECTS -->
+        <section id="projects">
+            <div class="container">
+                <h2 class="section-title">Featured Projects</h2>
+
+                <p class="muted" style="margin-bottom: 25px;">
+                    A selection of my data analytics work.
+                </p>
+
+                <div class="project-grid">
+
+                    <article class="project-card">
+                        <div class="tags">
+                            <span class="tag">Power BI</span>
+                            <span class="tag">Power Query</span>
+                            <span class="tag">DAX</span>
+                        </div>
+
+                        <h3>Multilingual Mobile App Reviews 2025</h3>
+
+                        <p>
+                            my first Visualization project as I used the best strategies for data cleaning first and
+                            started using the best insights to get the best analysis and conclusions for this data.
+                            This data about Mobile apps reviews and rating with It's date and time and the name of the app and It's category. 
+                        </p>
+
+                        <a class="project-link"
+                           href="https://github.com/MahmoudAhmed815/Data-analysis---Multilingual-Mobile-App-Reviews-2025"
+                           target="_blank" rel="noopener noreferrer">
+                            View Project ↗
+                        </a>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="tags">
+                            <span class="tag">SQL</span>
+                            <span class="tag">Business Analysis</span>
+                        </div>
+
+                        <h3>Pakistan E-commerce Analysis</h3>
+
+                        <p>
+                            This project analyzes an e-commerce dataset to uncover customer behavior, product performance, and revenue trends.
+                            Using Python (Pandas, NumPy, Matplotlib, Plotly) and Power BI, it includes data cleaning, EDA, visualizations 
+                            and actionable insights to support business decisions.
+                        </p>
+
+                        <a class="project-link"
+                           href="https://github.com/MahmoudAhmed815/-Pakistan-Ecommerce-Analysis-"
+                           target="_blank" rel="noopener noreferrer">
+                            View Project ↗
+                        </a>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">pandas</span>
+                        </div>
+
+                        <h3>Global Grocery Superstore </h3>
+
+                        <p>
+                            A complete data analysis and machine learning pipeline applied to an e-commerce dataset.
+                            It aims to extract meaningful insights, understand customer behavior, and build intelligent systems to support business decisions.
+                        </p>
+
+                        <a class="project-link"
+                           href="https://github.com/MahmoudAhmed815/Global-Grocery-Super-Store"
+                           target="_blank" rel="noopener noreferrer">
+                            View Project ↗
+                        </a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- SKILLS -->
+        <section id="skills">
+            <div class="container">
+                <h2 class="section-title">Skills & Tools</h2>
+
+                <div class="skills-grid">
+                    <div class="skill">
+                        <h3>Power BI</h3>
+                        <p>Dashboards, DAX, data modeling</p>
+                    </div>
+
+                    <div class="skill">
+                        <h3>SQL</h3>
+                        <p>Queries, joins, aggregations</p>
+                    </div>
+
+                    <div class="skill">
+                        <h3>Excel</h3>
+                        <p>PivotTables, formulas, reporting</p>
+                    </div>
+
+                    <div class="skill">
+                        <h3>Power Query</h3>
+                        <p>Cleaning and transformation</p>
+                    </div>
+
+                    <div class="skill">
+                        <h3>Python</h3>
+                        <p>pandas, exploration, charts</p>
+                    </div>
+
+                    <div class="skill">
+                        <h3>Visualization</h3>
+                        <p>Charts and data storytelling</p>
+                    </div>
+
+                    <div class="skill">
+                        <h3>Business Analysis</h3>
+                        <p>KPI definition and insights</p>
+                    </div>
+
+                    <div class="skill">
+                        <h3>Data Quality</h3>
+                        <p>Validation and consistency checks</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WORK PROCESS -->
+        <section id="approach">
+            <div class="container">
+                <h2 class="section-title">How I Work</h2>
+
+                <div class="process-grid">
+                    <div class="process-card">
+                        <span class="number">01 / PREPARE</span>
+                        <h3>Clean the Data</h3>
+                        <p>
+                            Check data quality, resolve inconsistencies,
+                            and prepare reliable datasets.
+                        </p>
+                    </div>
+
+                    <div class="process-card">
+                        <span class="number">02 / ANALYZE</span>
+                        <h3>Find Insights</h3>
+                        <p>
+                            Investigate trends, calculate KPIs, and
+                            answer focused business questions.
+                        </p>
+                    </div>
+
+                    <div class="process-card">
+                        <span class="number">03 / COMMUNICATE</span>
+                        <h3>Support Decisions</h3>
+                        <p>
+                            Explain findings clearly and recommend
+                            practical next steps.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact">
+            <div class="container">
+                <div class="contact-box">
+                    <div>
+                        <h2>Let's Connect.</h2>
+                        <p>
+                            Open to Data Analyst opportunities and
+                            interesting data projects.
+                        </p>
+                    </div>
+
+                    <div class="buttons">
+                        <a class="btn btn-primary"
+                           href="https://www.linkedin.com/in/mahmoudnoby/"
+                           target="_blank" rel="noopener noreferrer">
+                            Contact Me ↗
+                        </a>
+
+                        <a class="btn"
+                           href="https://github.com/MahmoudAhmed815"
+                           target="_blank" rel="noopener noreferrer">
+                            GitHub ↗
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            © 2026 Mahmoud Mohamed Ahmed · Data Analyst Portfolio
+        </div>
+    </footer>
+
+</body>
+</html>
